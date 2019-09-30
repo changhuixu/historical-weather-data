@@ -37,15 +37,16 @@ jobs:
           fi
       - name: git check in
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
         run: |
           git config user.email "changhuixu@hotmail.com"
           git config user.name "changhuixu"
           if [[ `git status --porcelain` ]]; then
             git add .
             git commit -a -m "add weather data"
-            header=$(echo -n $GITHUB_TOKEN | base64)
-            git -c http.extraheader="AUTHORIZATION: basic $header" push origin HEAD:master
+            git remote rm origin
+            git remote add origin https://changhuixu:$PUSH_TOKEN@github.com/changhuixu/historical-weather-data.git
+            git push origin HEAD:master
           else
             echo 'unable to detech changes'
           fi
