@@ -9,18 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: pwd
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          ls
+          git status
       - name: Save today's weather condition
         env:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
-          pwd
-          ls
-          git status
           FILE=./docs/assets/data/`date +"%Y%m%d"`.json
           if [ -f "$FILE" ]; then
               echo "$FILE exists. Done for today."
@@ -45,7 +42,7 @@ jobs:
           if [[ `git status --porcelain` ]]; then
             git add .
             git commit -a -m "add weather data"
-            git push
+            git push origin HEAD:master
           else
             echo 'unable to detech changes'
           fi
