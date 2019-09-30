@@ -40,6 +40,8 @@ jobs:
           fi
       - name: git check in
         run: |
+          git config user.email "changhuixu@hotmail.com"
+          git config user.name "Changhui Xu"
           if [[ `git status --porcelain` ]]; then
             git add .
             git commit -a -m "add weather data"
