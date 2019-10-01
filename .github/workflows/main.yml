@@ -1,7 +1,9 @@
 name: CI Build
 
-on: [push]
-
+on:
+  schedule:
+    - cron: 0 12 * * *
+    
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,7 +16,7 @@ jobs:
         run: |
           ls
           git status
-      - name: Save today's weather condition
+      - name: Save current weather condition
         env:
           API_KEY: ${{ secrets.API_KEY }}
         run: |
