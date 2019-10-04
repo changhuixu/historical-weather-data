@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Historical Weather Data</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+        <div class="chartjs-title">Historical Weather in Iowa City</div>
+        <div class="chartjs-caption">
+          Temperature in the past 30 days
+        </div>
+        <div class="chartjs-links">
+          <a
+            class="btn btn-docs"
+            href="https://codeburst.io/storing-weather-data-daily-using-github-actions-c2b0ed513ca6"
+            >Blog Post</a
+          >
+          <a
+            class="btn btn-gh"
+            href="https://github.com/changhuixu/historical-weather-data"
+            >GitHub</a
+          >
+        </div>
+      </div>
+
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
